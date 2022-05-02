@@ -61,6 +61,11 @@ class GameFragment : Fragment() {
             viewModel.onSkip()
         }
 
+        viewModel.timerText.observe(viewLifecycleOwner, Observer { timerText->
+            binding.timerText.text = timerText.toString()
+        })
+
+
         viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
             binding.scoreText.text = newScore.toString()
         })
